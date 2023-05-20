@@ -1,4 +1,6 @@
-body{
+
+
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,66 +10,141 @@ body{
     font-family: 'Open Sans', sans-serif;
     background-image: url("https://source.unsplash.com/1600x900/?landscape");
     font-size: 120%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.card{
-    background: #000000d0;
+.card {
+    background: rgba(0, 0, 0, 0.6);
     padding: 2em;
     color: white;
     border-radius: 1em;
-    width: 100%;
-    max-width: 20em;
-    margin: 20px;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(4px);
 }
 
-.search{
+.search {
     display: flex;
-    align-items: center;
+    margin-top: 3rem;
     justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
-input.search-bar{
+input.search-bar {
     border: none;
     outline: none;
-    border-radius: 24px;
+    border-radius: 10px;
     background: #7c7c7c2b;
     color: white;
     font-family: inherit;
     font-size: 100%;
     padding: 0.5em 1em;
-    width: calc(100% - 100px);
+    width: 70vw;
+    backdrop-filter: blur(2px);
 }
 
-.search button{
-    margin: 0.5em;
-    border-radius: 50%;
+.search button {
+    background-color: transparent;
+    border: none;
+}
+
+.search i {
+    /* margin: 0px 0 10px -70px; */
+    margin: -5px 0 0 -60px;
+    /* border-radius: 50%; */
     border: none;
     height: 46px;
     width: 46px;
-    background: #7c7c7c2b;
+    background: transparent;
     color: white;
     cursor: pointer;
+    position: absolute;
     transition: 0.2s ease-in-out;
 }
 
-.search button:hover{
-    background-color: #7c7c7c6b;
-}
 
-h1.temp{
-    margin: 0;
-    margin-bottom: 0.5em;
 
-}
-
-.flex{
+.flex {
     display: flex;
-    align-items: center;
-    margin-left: -10px;
+    justify-content: center;
+    margin-top: -2rem;
+    font-size: 20px;
 }
 
-.description{
-    text-transform: capitalize;
-    margin-left: 5px;
+.flex img {
+    height: 40px;
+    width: 40px;
+    margin-top: 14px;
+}
+
+
+.weather {
+    text-align: center;
+    margin-top: 3rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.weather h2 {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.weather .temp {
+    font-size: 50px;
+}
+
+.weather .humidity {
+    margin: 1rem;
+}
+
+.wind-container{
+    margin-top: 2rem;
+    color: white;
+    fill: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wind-container svg{
+    margin-right: 1rem;
+}
+
+.upcoming{
+    margin-top: 3rem;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.upcoming ul{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.upcoming ul li{
+    list-style: none;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 10px;
+}
+
+.upcoming ul li:nth-child(1){
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.upcoming ul li:nth-child(1) i{
+    color: rgb(255, 211, 130);
+}
+
+
+.upcoming ul li h5{
+    font-size: 28px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.upcoming ul li i{
+    font-size: 25px;
 }
 
