@@ -17,7 +17,8 @@ let weather = {
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/"+ icon +".png";
         document.querySelector(".description").innerHTML = description;
         document.querySelector(".humidity").innerHTML = humidity;
-        document.querySelector(".wind").innerHTML = "Wind speed: " +speed + "km/hr";
+        // document.querySelector(".wind-container").innerHTML = "<img src=\"wind.svg\" width=\"20px\" height=\"20px\">" +speed + "km/hr";
+        document.querySelector(".wind").innerHTML = +speed + "km/hr";
         document.querySelector(".humidity").innerHTML = "Humidity: " +humidity + "%";
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?"+ name+"')"
     },
@@ -39,4 +40,4 @@ document.querySelector(".search-bar").addEventListener('keyup', function(event){
 });
 
 
-onload(weather.fetchWeather("Seattle"));
+weather.fetchWeather("Sydney");
