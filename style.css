@@ -1,32 +1,34 @@
 
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
-    background: #222;
     font-family: 'Open Sans', sans-serif;
-    background-image: url("https://source.unsplash.com/1600x900/?landscape");
-    font-size: 120%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
 
 .card {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 2em;
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.5);
     color: white;
-    border-radius: 1em;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(4px);
+    width: 100%;
+    backdrop-filter: blur(6px);
+    /* margin-left: -2rem; */
+    height: 100%;
 }
+
+
 
 .search {
     display: flex;
-    margin-top: 3rem;
+    margin-top: 2rem;
     justify-content: flex-start;
     justify-content: center;
     align-items: center;
@@ -36,13 +38,19 @@ input.search-bar {
     border: none;
     outline: none;
     border-radius: 10px;
-    background: #7c7c7c2b;
-    color: white;
+    background: hsla(0, 0%, 84%, 0.3);
+    color: rgb(192, 192, 192);
     font-family: inherit;
     font-size: 100%;
     padding: 0.5em 1em;
     width: 70vw;
     backdrop-filter: blur(2px);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.search input::placeholder{
+    color: rgb(161, 161, 161);
 }
 
 .search button {
@@ -64,6 +72,10 @@ input.search-bar {
     transition: 0.2s ease-in-out;
 }
 
+/* .search button:hover{
+    background-color: #7c7c7c6b;
+} */
+
 
 
 .flex {
@@ -79,12 +91,25 @@ input.search-bar {
     margin-top: 14px;
 }
 
+/* .description{
+    text-transform: capitalize;
+    display: inline-flex;
+} */
 
 .weather {
     text-align: center;
     margin-top: 3rem;
     font-family: 'Quicksand', sans-serif;
 }
+
+/* .weather #city{
+    position: sticky;
+}
+
+.weather .city-bg{
+    background-color: rgba(233, 233, 233, 0.2);
+    padding: 1rem;
+} */
 
 .weather h2 {
     font-weight: 400;
@@ -95,56 +120,234 @@ input.search-bar {
     font-size: 50px;
 }
 
-.weather .humidity {
-    margin: 1rem;
+.weather .details{
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.wind-container{
+.weather .humid-container{
+    font-size: 22px;
     margin-top: 2rem;
     color: white;
-    fill: white;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 }
-.wind-container svg{
+
+.humid-container i {
     margin-right: 1rem;
 }
 
-.upcoming{
-    margin-top: 3rem;
-    font-family: 'Quicksand', sans-serif;
-}
-
-.upcoming ul{
+.wind-container {
+    font-size: 20px;
+    margin-top: 2rem;
+    color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.wind-container i {
+    margin-right: 1rem;
+}
+
+.airq-container{
+    font-size: 20px;
+    margin-top: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.airq-container i{
+    margin-right: 1rem;
+}
+
+.chart-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* .chart-container .chart{
+    height: 100px;
+} */
+
+.upcoming {
+    margin-top: 3rem;
+    margin-left: -1rem;
+    font-family: 'Quicksand', sans-serif;
+    width: 100vw;
+    justify-content: center;
+}
+
+.upcoming ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
 
 }
 
-.upcoming ul li{
+.upcoming ul li {
+    display: unset;
     list-style: none;
-    padding-left: 3rem;
     padding-right: 3rem;
+    padding-left: 3rem;
+    width: 8rem;
     border-radius: 10px;
 }
 
-.upcoming ul li:nth-child(1){
+.upcoming ul li:nth-child(1) {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.upcoming ul li:nth-child(1) i{
-    color: rgb(255, 211, 130);
-}
 
-
-.upcoming ul li h5{
+.upcoming ul li h5 {
     font-size: 28px;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
-.upcoming ul li i{
+.upcoming ul li i {
     font-size: 25px;
 }
 
+.upcoming ul li .right-arrow{
+    display: none;
+}
+
+.airq-progress-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(240, 240, 240,0.1);
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.airq-progress-container h5{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+
+
+
+
+@media(max-width: 940px){
+    html{
+        overflow-x: hidden;
+    }
+    body{
+        overflow-x: hidden;
+    }
+
+    .card{
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+    .upcoming{
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .upcoming ul{
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 2rem;
+    }
+
+    .upcoming ul li{
+        display: flex;
+        width: 73vw;
+        align-items: center;
+    }
+
+    .upcoming ul .up-right{
+        width: 70vw;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .upcoming ul li h5 {
+        font-size: 24px;
+        margin-right: 1rem;
+    }
+
+    .upcoming ul li i{
+        margin-right: 0.5rem;
+    }
+
+    
+
+}
+
+@media(max-width: 560px){
+
+    .weather .details .humid-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .humid-container i{
+        margin-right: unset;
+        padding-bottom: 1rem;
+    }
+    
+    .weather .details .wind-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .wind-container i{
+        margin-right: unset;
+        padding-bottom: 1rem;
+    }
+
+    .weather .details .airq-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .airq-container i{
+        margin-right: unset;
+        margin-bottom: 1rem;
+    }
+
+    .upcoming ul{
+        margin-left: unset;
+    }
+
+    .upcoming ul li{
+        margin-left: -1rem;
+        width: 100vw;
+        border-radius: 0;
+    }
+
+    .upcoming ul li h5{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .upcoming ul li i{
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .upcoming ul li .desc{
+        display: none;
+    }
+}
