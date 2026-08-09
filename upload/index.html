@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale = 1.0,maximum-scale = 1.0" />
+  <title>Weather App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;1,1000&family=Open+Sans&family=Outfit:wght@300;400;500&family=Roboto+Mono:wght@500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- CDN for on-scroll animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Fontawesome pro icons -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+  <!-- Main Css -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Miain Script -->
+  <script src="script.js" defer> </script>
+
+</head>
+
+<body">
+
+  <div class="main-container">
+
+    <!-- Main tools container starts -->
+    <div class="main-tools-container">
+
+      <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search for city, pincode...">
+        <button class="search-btn" title="Search"><i class="fa-light fa-magnifying-glass"></i></button>
+        <button class="get-location-btn" title="Get your location"><i
+            class="fa-duotone fa-location-crosshairs"></i></button>
+      </div>
+
+
+      <div class="page-option-container">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fa-regular fa-ellipsis-vertical option-icon"></i>
+        </label>
+        <br>
+        <div class="page-option">
+          <ul>
+            <li><i class="fa-light fa-plus"></i> Add Location</li>
+            <hr>
+            <li class="unit">
+              <p class="C active">C</p>
+              <p class="F">F</p>
+            </li>
+            <hr>
+            <li><i class="fa-duotone fa-user"></i>SignIn</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Main tools container ends -->
+
+    <div class="main-cards-container">
+
+      <div class="card1">
+        <h3>Current <i class="fa-duotone fa-location-dot"></i></h3>
+        <h3 id="city" class="city"> Weather in </h3>
+        <h1 class="temp"> 0°C </h1>
+
+
+        <div class="feel-container">
+          <h5>Feels like:</h5>
+          <p class="feel">0°</p>
+        </div>
+
+        <div class="desc-container">
+          <img src="" alt="icon" class="icon">
+          <p class="description">Overcast Clouds</p>
+        </div>
+
+        <div class="details-card1">
+
+          <div class="humid-container" title="Humidity">
+            <i class="fa-duotone fa-droplet-degree"></i>
+            <p>Humidity:</p>
+            <h5 class="humid">100%</h5>
+          </div>
+
+          <hr>
+
+          <div class="wind-container" title="Wind Speed">
+            <i class="fa-duotone fa-paper-plane"></i>
+            <p>Wind speed:</p>
+            <h5 class="wind">100 km/h</h5>
+          </div>
+
+          <hr>
+
+          <div class="uvi-container" title="UV Index">
+            <i class="fa-duotone fa-brightness"></i>
+            <p>UV index:</p>
+            <h5 class="uvi">0</h5>
+          </div>
+
+          <hr>
+
+          <div class="aqi-container" title="Air Quality Index">
+            <i class="fa-duotone fa-leaf"></i>
+            <p>Air quality:</p>
+            <h5 class="aqi">...</h5>
+            <a href="" class="aqi-button"><i class="fa-light fa-chevron-right"></i></a>
+          </div>
+
+          <hr>
+
+          <div class="visibility-container" title="Visibility">
+            <i class="fa-duotone fa-eye"></i>
+            <p>Visibility:</p>
+            <h5 class="visibility">0Km</h5>
+          </div>
+
+          <hr>
+
+          <div class="wind-direction-container" title="Wind Direction">
+            <h4>Wind Direction:</h4>
+
+            <div class="compass-container">
+              <img class="compass" src="https://i.ibb.co/Ttkb8s1/compass.png" alt="">
+              <img class="arrow" src="https://i.ibb.co/SVg8dSD/direction-arrow.png" alt="">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card2">
+
+        <!-- Hourly weather section starts -->
+
+        <div class="hourly-container">
+
+          <h3><i class="fa-duotone fa-clock"></i> Hourly </h3>
+
+          <div class="hourly-card-container">
+
+            <div class="hourly-card hourly-card1">
+              <p class="hourly-time hourly-time1">0:00</p>
+              <div class="hourly-right">
+                <img src="" alt="" class="hourly-icon hourly-icon1">
+                <h2 class="hourly-temp hourly-temp1">0C°</h2>
+              </div>
+            </div>
+
+            <div class="hourly-card hourly-card2">
+              <p class="hourly-time hourly-time2">0:00</p>
+              <div class="hourly-right">
+                <img src="" alt="" class="hourly-icon hourly-icon2">
+                <h2 class="hourly-temp hourly-temp2">0°C</h2>
+              </div>
+            </div>
+
+            <div class="hourly-card hourly-card3">
+              <p class="hourly-time hourly-time3">0:00</p>
+              <div class="hourly-right">
+                <img src="" alt="" class="hourly-icon hourly-icon3">
+                <h2 class="hourly-temp hourly-temp3">0°C</h2>
+              </div>
+            </div>
+
+            <div class="hourly-card hourly-card4">
+              <p class="hourly-time hourly-time4">0:00</p>
+              <div class="hourly-right">
+                <img src="" alt="" class="hourly-icon hourly-icon4">
+                <h2 class="hourly-temp hourly-temp4">0°C</h2>
+              </div>
+            </div>
+
+            <div class="hourly-card hourly-card5">
+              <p class="hourly-time hourly-time5">0:00</p>
+              <div class="hourly-right">
+                <img src="" alt="" class="hourly-icon hourly-icon5">
+                <h2 class="hourly-temp hourly-temp5">0°C</h2>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Haourly weather section ends -->
+
+
+        <!-- Daily Wether Section Starts -->
+
+        <div class="daily-container">
+
+          <h3 class="daily-heading"><i class="fa-duotone fa-calendar-days"></i> Daily (Next 5 days) </h3>
+
+          <div class="daily-card-container">
+
+            <!-- Card starts -->
+
+            <div class="daily-card daily-card1">
+              <div class="top-line">
+                <h4 class="daily-date daily-date1">Today</h4>
+                <div class="daily-right">
+                  <h2 class="daily-temp-max daily-temp-max1">0°</h2>
+                  <h3 class="daily-temp-min daily-temp-min1">0°</h3>
+                </div>
+              </div>
+              <hr>
+              <div class="daily-mid">
+                <h3 class="daily-description daily-description1">Mostly Clouds</h3>
+                <img src="" alt="" class="daily-icon daily-icon1">
+              </div>
+              <div class="daily-more-data daily-more-data1">
+
+                <div class="daily-more-data-imp">
+                  <span class="daily-humid-container">
+                    <i class="fa-duotone fa-droplet-degree"></i>
+                    <h3>Humidty:</h3>
+                    <p class="daily-humid daily-humid1">0%</p>
+                  </span>
+
+                  <span class="daily-wind-container">
+                    <i class="fa-duotone fa-paper-plane"></i>
+                    <h3>Wind:</h3>
+                    <p class="daily-wind daily-wind1">0 km/h</p>
+                  </span>
+
+                  <span class="daily-uvi-container">
+
+                    <h3>UV index:</h3>
+                    <i class="fa-duotone fa-brightness"></i>
+                    <p class="daily-uvi daily-uvi1">0</p>
+                  </span>
+                </div>
+
+                <hr>
+
+                <p class="daily-summary daily-summary1">Day Sumary</p>
+
+              </div>
+            </div>
+
+            <!-- Card ends -->
+
+            <div class="daily-card daily-card2">
+              <div class="top-line">
+                <h4 class="daily-date daily-date2">Day 2</h4>
+                <div class="daily-right">
+                  <h2 class="daily-temp-max daily-temp-max2">0°</h2>
+                  <h3 class="daily-temp-min daily-temp-min2">0°</h3>
+                </div>
+              </div>
+              <hr>
+              <div class="daily-mid">
+                <h3 class="daily-description daily-description2">Mostly Clouds</h3>
+                <img src="" alt="" class="daily-icon daily-icon2">
+              </div>
+              <div class="daily-more-data daily-more-data2">
+
+                <div class="daily-more-data-imp">
+                  <span class="daily-humid-container">
+                    <i class="fa-duotone fa-droplet-degree"></i>
+                    <h3>Humidty:</h3>
+                    <p class="daily-humid daily-humid2">0%</p>
+                  </span>
+
+                  <span class="daily-wind-container">
+                    <i class="fa-duotone fa-paper-plane"></i>
+                    <h3>Wind:</h3>
+                    <p class="daily-wind daily-wind2">0 km/h</p>
+                  </span>
+
+                  <span class="daily-uvi-container">
+
+                    <h3>UV index:</h3>
+                    <i class="fa-duotone fa-brightness"></i>
+                    <p class="daily-uvi daily-uvi2">0</p>
+                  </span>
+                </div>
+
+                <hr>
+
+                <p class="daily-summary daily-summary2">Day Sumary</p>
+
+              </div>
+            </div>
+
+            <!-- Card starts -->
+
+            <div class="daily-card daily-card3">
+              <div class="top-line">
+                <h4 class="daily-date daily-date3">Day 3</h4>
+                <div class="daily-right">
+                  <h2 class="daily-temp-max daily-temp-max3">0°</h2>
+                  <h3 class="daily-temp-min daily-temp-min3">0°</h3>
+                </div>
+              </div>
+              <hr>
+              <div class="daily-mid">
+                <h3 class="daily-description daily-description3">Mostly Clouds</h3>
+                <img src="" alt="" class="daily-icon daily-icon3">
+              </div>
+              <div class="daily-more-data daily-more-data3">
+
+                <div class="daily-more-data-imp">
+                  <span class="daily-humid-container">
+                    <i class="fa-duotone fa-droplet-degree"></i>
+                    <h3>Humidty:</h3>
+                    <p class="daily-humid daily-humid3">0%</p>
+                  </span>
+
+                  <span class="daily-wind-container">
+                    <i class="fa-duotone fa-paper-plane"></i>
+                    <h3>Wind:</h3>
+                    <p class="daily-wind daily-wind3">0 km/h</p>
+                  </span>
+
+                  <span class="daily-uvi-container">
+
+                    <h3>UV index:</h3>
+                    <i class="fa-duotone fa-brightness"></i>
+                    <p class="daily-uvi daily-uvi3">0</p>
+                  </span>
+                </div>
+
+                <hr>
+
+                <p class="daily-summary daily-summary3">Day Sumary</p>
+
+              </div>
+            </div>
+
+            <!-- Card ends -->
+
+            <!-- Card starts -->
+
+            <div class="daily-card daily-card4">
+              <div class="top-line">
+                <h4 class="daily-date daily-date4">Day 4</h4>
+                <div class="daily-right">
+                  <h2 class="daily-temp-max daily-temp-max4">0°</h2>
+                  <h3 class="daily-temp-min daily-temp-min4">0°</h3>
+                </div>
+              </div>
+              <hr>
+              <div class="daily-mid">
+                <h3 class="daily-description daily-description4">Mostly Clouds</h3>
+                <img src="" alt="" class="daily-icon daily-icon4">
+              </div>
+              <div class="daily-more-data daily-more-data3">
+
+                <div class="daily-more-data-imp">
+                  <span class="daily-humid-container">
+                    <i class="fa-duotone fa-droplet-degree"></i>
+                    <h3>Humidty:</h3>
+                    <p class="daily-humid daily-humid4">0%</p>
+                  </span>
+
+                  <span class="daily-wind-container">
+                    <i class="fa-duotone fa-paper-plane"></i>
+                    <h3>Wind:</h3>
+                    <p class="daily-wind daily-wind4">0 km/h</p>
+                  </span>
+
+                  <span class="daily-uvi-container">
+
+                    <h3>UV index:</h3>
+                    <i class="fa-duotone fa-brightness"></i>
+                    <p class="daily-uvi daily-uvi4">0</p>
+                  </span>
+                </div>
+
+                <hr>
+
+                <p class="daily-summary daily-summary4">Day Sumary</p>
+
+              </div>
+            </div>
+
+            <!-- Card ends -->
+
+            <!-- Card starts -->
+
+            <div class="daily-card daily-card5">
+              <div class="top-line">
+                <h4 class="daily-date daily-date5">Day 5</h4>
+                <div class="daily-right">
+                  <h2 class="daily-temp-max daily-temp-max5">0°</h2>
+                  <h3 class="daily-temp-min daily-temp-min5">0°</h3>
+                </div>
+              </div>
+              <hr>
+              <div class="daily-mid">
+                <h3 class="daily-description daily-description5">Mostly Clouds</h3>
+                <img src="" alt="" class="daily-icon daily-icon5">
+              </div>
+              <div class="daily-more-data daily-more-data5">
+
+                <div class="daily-more-data-imp">
+                  <span class="daily-humid-container">
+                    <i class="fa-duotone fa-droplet-degree"></i>
+                    <h3>Humidty:</h3>
+                    <p class="daily-humid daily-humid5">0%</p>
+                  </span>
+
+                  <span class="daily-wind-container">
+                    <i class="fa-duotone fa-paper-plane"></i>
+                    <h3>Wind:</h3>
+                    <p class="daily-wind daily-wind5">0 km/h</p>
+                  </span>
+
+                  <span class="daily-uvi-container">
+
+                    <h3>UV index:</h3>
+                    <i class="fa-duotone fa-brightness"></i>
+                    <p class="daily-uvi daily-uvi5">0</p>
+                  </span>
+                </div>
+
+                <hr>
+
+                <p class="daily-summary daily-summary5">Day Sumary</p>
+
+              </div>
+            </div>
+
+            <!-- Card ends -->
+
+          </div>
+
+        </div>
+
+        <!-- Daily Wether Section Ends -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const c_f_toggle = document.querySelector(".unit");
+
+    c_f_toggle.addEventListener("click", () => {
+
+      c_f_toggle.querySelector('p:nth-child(1)').classList.toggle('active');
+      c_f_toggle.querySelector('p:nth-child(2)').classList.toggle('active');
+
+    })
+  </script>
+  </body>
+
+</html>
