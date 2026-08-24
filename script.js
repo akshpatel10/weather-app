@@ -1,5 +1,5 @@
 let weather = {
-    apiKey: "API_KEY",
+    apiKey: "OWM_API_KEY",
     fetchWeather: function (latitude, longitude) {
         fetch(
             "https://api.openweathermap.org/data/3.0/onecall?lat="
@@ -80,7 +80,7 @@ let weather = {
         var arrow = document.querySelector(".arrow");
 
         // Main data
-        fetch(`https://api.unsplash.com/photos/random?query=${encodeURIComponent(description)}&orientation=landscape&client_id=API_KEY`)
+        fetch(`https://api.unsplash.com/photos/random?query=${encodeURIComponent(description)}&orientation=landscape&client_id=UNSPLASH_API_KEY`)
             .then(response => response.json())
             .then(data => {
                 if (data.urls && data.urls.regular) {
@@ -153,7 +153,7 @@ let convertors = {
 let geocode = {
 
     fetchGeoCode: function (name) {
-        fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&appid=API_KEY")
+        fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + name + "&appid=OWM_API_KEY")
             .then((response) => response.json())
             .then((data) => this.geoCoding(data));
     },
@@ -170,8 +170,24 @@ let geocode = {
 
     getLocation: function () {
         function sucess(data) {
-            weather.fetchWeather(data.coords.latitude, data.coords.longitude);
-            weather.fetchAqi(data.coords.latitude, data.coords.longitude);
+            const lat = data.coords.latitude;
+            const lon = data.coords.longitude;
+            weather.fetchWeather(lat, lon);
+            weather.fetchAqi(lat, lon);
+
+            // Reverse geocode: coords → city name
+            fetch(
+                "https://api.openweathermap.org/geo/1.0/reverse?lat=" + lat
+                + "&lon=" + lon
+                + "&limit=1&appid=OWM_API_KEY"
+            )
+                .then((response) => response.json())
+                .then((geoData) => {
+                    if (geoData && geoData.length > 0) {
+                        document.querySelector(".city").innerText = "Weather in " + geoData[0].name;
+                    }
+                });
+
             console.log(data);
         }
         if (navigator.geolocation) {
@@ -205,8 +221,8 @@ geocode.fetchGeoCode("sydney");
 
 
 
-// https://api.openweathermap.org/data/3.0/onecall?lat=22.31&lon=73.15&exclude=minutely&units=metric&appid=API_KEY
+// https://api.openweathermap.org/data/3.0/onecall?lat=22.31&lon=73.15&exclude=minutely&units=metric&appid=OWM_API_KEY
 
-// AirQ: https://api.openweathermap.org/data/2.5/air_pollution?lat=22.30&lon=73.18&appid=API_KEY
+// AirQ: https://api.openweathermap.org/data/2.5/air_pollution?lat=22.30&lon=73.18&appid=OWM_API_KEY
 
 // Problems: time in hourly, city name
